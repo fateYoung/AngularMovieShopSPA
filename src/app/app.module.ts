@@ -24,6 +24,8 @@ import { TopRevenueMoviesComponent } from './movies/top-revenue-movies/top-reven
 import { HeaderComponent } from './core/layout/header/header.component';
 import { FooterComponent } from './core/layout/footer/footer.component';
 import { AboutUsComponent } from './shared/components/about-us/about-us.component';
+import { LoginComponent } from './login/login.component';
+import { MoviesByGenreComponent } from './movies/movies-by-genre/movies-by-genre.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +44,9 @@ import { AboutUsComponent } from './shared/components/about-us/about-us.componen
     TopRevenueMoviesComponent,
     HeaderComponent,
     FooterComponent,
-    AboutUsComponent
+    AboutUsComponent,
+    LoginComponent,
+    MoviesByGenreComponent
   ],
   imports: [
     BrowserModule,
