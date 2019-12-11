@@ -5,7 +5,7 @@ import { MovieService } from 'src/app/core/services/movie.service';
 
 @Component({
   selector: 'app-top-rated-movies',
-  templateUrl: './top-rated-movies.component.html',
+  template: '<app-movie-list [inputMovie] = "movies"></app-movie-list>',
   styleUrls: ['./top-rated-movies.component.css']
 })
 export class TopRatedMoviesComponent implements OnInit {

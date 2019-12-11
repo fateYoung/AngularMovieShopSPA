@@ -17,7 +17,6 @@ export class GenresComponent implements OnInit {
     .subscribe(
       g => {this.genres = g;
             console.log(this.genres);
-            console.table(this.genres);
       }
     );
   }

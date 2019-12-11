@@ -26,6 +26,7 @@ import { FooterComponent } from './core/layout/footer/footer.component';
 import { AboutUsComponent } from './shared/components/about-us/about-us.component';
 import { LoginComponent } from './login/login.component';
 import { MoviesByGenreComponent } from './movies/movies-by-genre/movies-by-genre.component';
+import { MovieCardComponent } from './shared/components/movie-card/movie-card.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { MoviesByGenreComponent } from './movies/movies-by-genre/movies-by-genre
     FooterComponent,
     AboutUsComponent,
     LoginComponent,
-    MoviesByGenreComponent
+    MoviesByGenreComponent,
+    MovieCardComponent
   ],
   imports: [
     BrowserModule,

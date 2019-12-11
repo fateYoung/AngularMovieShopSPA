@@ -5,13 +5,13 @@ export interface Movie {
   tagline: string;
   budget: number;
   revenue: number;
-  imdburl: string;
-  tmdburl: string;
-  posterurl: string;
-  backdropurl: string;
-  originallanguage: string;
-  releasedate: Date;
-  runtime: number;
+  imdbUrl: string;
+  tmdbUrl: string;
+  posterUrl: string;
+  backdropUrl: string;
+  originalLanguage: string;
+  releaseDate: Date;
+  runTime: number;
   price: number;
 
 }
