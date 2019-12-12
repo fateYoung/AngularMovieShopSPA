@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Movie } from 'src/app/shared/models/movie';
 import { MovieService } from 'src/app/core/services/movie.service';
-import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-movies-by-genre',
