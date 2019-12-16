@@ -18,7 +18,7 @@ export class MoviesByGenreComponent implements OnInit {
   ngOnInit() {
     this.route.paramMap.subscribe(
       params => {
-        this.urlSegment = this.route.snapshot.params.id;
+        this.urlSegment = params.get('id');
         this.movieService.getMoviesByGenreId(+this.urlSegment)
         .subscribe(
           m => {

@@ -15,12 +15,12 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.movieService.getAllTop20RevenueMovies()
-    .subscribe(
-      m => {
-        this.movies = m;
-        console.log(this.movies);
-      }
-    );
+      .subscribe(
+        m => {
+          this.movies = m;
+          console.log(this.movies);
+        }
+      );
   }
 
   movieFavorited(movie: Movie) {

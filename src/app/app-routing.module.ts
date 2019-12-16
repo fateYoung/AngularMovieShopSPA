@@ -14,23 +14,25 @@ import { CreateMovieComponent } from './admin/create-movie/create-movie.componen
 import { CreateCastComponent } from './admin/create-cast/create-cast.component';
 import { CreateCrewComponent } from './admin/create-crew/create-crew.component';
 import { MoviesByGenreComponent } from './movies/movies-by-genre/movies-by-genre.component';
+import { AuthenticationGuard } from './core/guards/authenticationGuard';
+import { AdminGuard } from './core/guards/adminGuard';
 
 
 const routes: Routes = [
-  { path: '', component: HomeComponent},
-  { path: 'genres', component: GenresComponent},
-  { path: 'topmovies', component: TopRatedMoviesComponent},
-  { path: 'toprevenue', component: TopRevenueMoviesComponent},
-  { path: 'login', component: LoginComponent},
-  { path: 'aboutus', component: AboutUsComponent},
-  { path: 'user/create', component: CreateUserComponent},
-  { path: 'user/favorite', component: MyFavoritesComponent},
-  { path: 'user/purchase', component: MyMovieComponent},
-  { path: 'user/account', component: MyAccountComponent},
-  { path: 'admin/createmovie', component: CreateMovieComponent},
-  { path: 'admin/createcast', component: CreateCastComponent},
-  { path: 'admin/createcrew', component: CreateCrewComponent},
-  { path: 'genres/:id', component: MoviesByGenreComponent},
+  { path: '', component: HomeComponent },
+  { path: 'genres', component: GenresComponent },
+  { path: 'topmovies', component: TopRatedMoviesComponent },
+  { path: 'toprevenue', component: TopRevenueMoviesComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'aboutus', component: AboutUsComponent },
+  { path: 'user/create', component: CreateUserComponent },
+  { path: 'user/favorite', component: MyFavoritesComponent, canActivate: [AuthenticationGuard] },
+  { path: 'user/purchase', component: MyMovieComponent, canActivate: [AuthenticationGuard] },
+  { path: 'user/account', component: MyAccountComponent, canActivate: [AuthenticationGuard] },
+  { path: 'admin/createmovie', component: CreateMovieComponent, canActivate: [AuthenticationGuard, AdminGuard] },
+  { path: 'admin/createcast', component: CreateCastComponent, canActivate: [AuthenticationGuard, AdminGuard] },
+  { path: 'admin/createcrew', component: CreateCrewComponent, canActivate: [AuthenticationGuard, AdminGuard] },
+  { path: 'genres/:id', component: MoviesByGenreComponent },
 
 ];
 

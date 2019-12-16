@@ -1,1 +1,17 @@
-<p>login works!</p>
+<div class="container">
+  <div *ngIf="invalidLogin" class="alert alert-danger">Invalid username and/or password.</div>
+  <form (ngSubmit)="login()" #loginForm="ngForm">
+    <div class="form-group">
+      <label for="lblEmail">Email address</label>
+      <input type="text" name="email" id="lblEmail" class="form-control" placeholder="email"
+        [(ngModel)]="userLogin.userName" required email>
+      <small id="helpId" class="text-muted">We'll never share your email with anyone else.</small>
+    </div>
+    <div class="form-group">
+      <label for="lblPassword">Password</label>
+      <input type="password" class="form-control" name="password" id="lblPassword" placeholder="Password"
+        [(ngModel)]="userLogin.password" required>
+    </div>
+    <input [disabled]="!loginForm.valid" type="submit" class="btn btn-primary" value="Submit" />
+  </form>
+</div>

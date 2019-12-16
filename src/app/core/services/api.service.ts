@@ -16,7 +16,23 @@ export class ApiService {
     return this.http.get(`${environment.apiUrl}${path}`)
       .pipe
       (
-      map(response => response as any[]), catchError(e => throwError(new Error('SOMETHING BAD HAPPENED')))
+        map(response => response as any[]), catchError(e => throwError(new Error('SOMETHING BAD HAPPENED')))
       );
+  }
+
+  getOne(path: string, id: number): Observable<any> {
+    return this.http.get(`${environment.apiUrl}${path}` + '/' + id)
+      .pipe
+      (
+        map(response => response), catchError(e => throwError(new Error('SOMETHING BAD HAPPENED')))
+      );
+  }
+  create(path: string, resource: Object = {}, options?): Observable<any> {
+    return this.http.post(`${environment.apiUrl}${path}`, JSON.stringify(resource), options)
+      .pipe(map(response => response), catchError(e => throwError(new Error('SOMETHING BAD HAPPENED'))));
+  }
+  update(path: string, resource) {
+    return this.http.put(`${environment.apiUrl}${path}` + '/' + resource.id, JSON.stringify({ isRead: true }))
+      .pipe(map(response => response), catchError(e => throwError(new Error('SOMETHING BAD HAPPENED'))));
   }
 }

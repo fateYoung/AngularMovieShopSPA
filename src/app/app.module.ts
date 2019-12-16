@@ -2,9 +2,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 // Package Imports
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 // Self Component Imports
 import { AppRoutingModule } from './app-routing.module';
@@ -27,6 +28,8 @@ import { AboutUsComponent } from './shared/components/about-us/about-us.componen
 import { LoginComponent } from './login/login.component';
 import { MoviesByGenreComponent } from './movies/movies-by-genre/movies-by-genre.component';
 import { MovieCardComponent } from './shared/components/movie-card/movie-card.component';
+import { AuthenticationGuard } from 'src/app/core/guards/authenticationGuard';
+import { JwtModule } from '@auth0/angular-jwt';
 
 @NgModule({
   declarations: [
@@ -54,7 +57,15 @@ import { MovieCardComponent } from './shared/components/movie-card/movie-card.co
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    NgbModule
+    NgbModule,
+    FormsModule,
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: () => {
+          return localStorage.getItem('token');
+        }
+      }
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
